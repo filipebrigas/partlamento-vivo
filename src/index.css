@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 8%;
+    --foreground: 210 40% 95%;
+
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 95%;
+
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 95%;
+
+    --primary: 43 58% 55%;
+    --primary-foreground: 222 47% 8%;
+
+    --secondary: 222 47% 15%;
+    --secondary-foreground: 210 40% 95%;
+
+    --muted: 222 47% 15%;
+    --muted-foreground: 215 20% 55%;
+
+    --accent: 43 58% 55%;
+    --accent-foreground: 222 47% 8%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 40% 95%;
+
+    --border: 222 47% 18%;
+    --input: 222 47% 18%;
+    --ring: 43 58% 55%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .parliament-gradient {
+    background: linear-gradient(135deg, #001f5c 0%, #003399 50%, #001f5c 100%);
+  }
+  .gold-gradient {
+    background: linear-gradient(135deg, #C8A951 0%, #e8c96a 50%, #C8A951 100%);
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-parliament-gold/10;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Custom scrollbar for the app */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
